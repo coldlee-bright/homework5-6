@@ -6,7 +6,7 @@ public class ball : MonoBehaviour
 {
 
     // Use this for initialization
-    int i = 1, j = 0, k = 0, m = 0, n = 0, o = 0, p = 1;
+    int i = 1, j = 0, k = 0, m = 0, n = 0, o = 1, p = 1, r = 1;
     int speed = 5;
     float x, z;
     public GameObject cube;
@@ -40,30 +40,37 @@ public class ball : MonoBehaviour
         if (col.transform.tag == "fzl")
         {
             n = 1 - n;
-            o = 1;
+            o = -o;
         }
+        if (col.transform.tag == "cs")
+        {
+            r = 0;
+        }
+        
+            
     }
    private void Awake()
     {
        
     }
-     void siwang()
+    public void siwang()
     {
         GetComponent<Rigidbody2D>().position = new Vector3(-12, 6, 2);
         m = 0;
         j = 0;
         i = 1;
         n = 0;
+        o = 1;
     }
     void qianjin()
     {
         Physics2D.gravity = new Vector3(0, -60F, 0);
         GetComponent<Rigidbody2D>().AddForce(Vector3.right * 1, ForceMode2D.Impulse);
-        if (GetComponent<Rigidbody2D>().velocity.x >= 10)
+        if (GetComponent<Rigidbody2D>().velocity.x >= 10.2f)
             GetComponent<Rigidbody2D>().AddForce(Vector3.left * 2, ForceMode2D.Impulse);
         if (j == 1)
         {
-            r1.velocity = new Vector3(10, 0, 0);
+            r1.velocity = new Vector3(5f, 0, 0);
             GetComponent<Rigidbody2D>().AddForce(Physics2D.gravity * -19);
             j = 0;
             i = 2;
@@ -78,7 +85,7 @@ public class ball : MonoBehaviour
         }
         if (Input.GetButton("Fire1") && i == 0)
         {
-            r1.velocity = new Vector3(10, 0, 0);
+            r1.velocity = new Vector3(5f, 0, 0);
             GetComponent<Rigidbody2D>().AddForce(Physics2D.gravity * -15);
             i = i + 1;
         }
@@ -87,10 +94,9 @@ public class ball : MonoBehaviour
     {
         Physics2D.gravity = new Vector3(0, 0, 0);
     }
-    void oo()
-
+    void chuansong()
     {
-        o = 0;
+        GetComponent<Rigidbody2D>().position = new Vector3(-21, 37, 1);
     }
     // Update is called once per frame
     void Update()
@@ -105,13 +111,12 @@ public class ball : MonoBehaviour
         {
             r1.velocity = new Vector3(0, 0, 0);
         }
-        if (o == 1)
+        transform.Rotate(Vector3.back * 10*o);
+        if (r == 0)
         {
-            //transform.Rotate( Vector3.forward,10, Space.World);
-            transform.rotation = Quaternion.Inverse(me.transform.rotation);
-            o = 0;
+            chuansong();
+            r = 1;
         }
-         
 
         /*x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
