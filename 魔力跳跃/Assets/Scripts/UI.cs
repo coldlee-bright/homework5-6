@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UI : MonoBehaviour {
     public GameObject me;    
-    int n = 1;
+    static public int c = 1;
 	// Use this for initialization
 	void Start () {
         transform.position = new Vector3(-2, 39, -14);
@@ -13,8 +13,7 @@ public class UI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+    }
     public void OnGUI()
     {
         GUIStyle fontStyle = new GUIStyle();
@@ -26,8 +25,8 @@ public class UI : MonoBehaviour {
         {
             if (GUI.Button(new Rect(420, 150, 100, 40), "开始游戏"))
             {
-                me.transform.position = new Vector3(-12, 6, 2);
-               // n = 0;
+                //me.transform.position = new Vector3(-12, 6, 2);
+                c = 0;
             }
         }
        	

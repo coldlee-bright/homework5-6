@@ -45,9 +45,7 @@ public class ball : MonoBehaviour
         if (col.transform.tag == "cs")
         {
             r = 0;
-        }
-        
-            
+        }                  
     }
    private void Awake()
     {
@@ -101,11 +99,11 @@ public class ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //float z=GetComponent<Rigidbody>().velocity.z;
-        if (k == 1)
+        if (k == 1||UI.c==0)
         {
             Invoke("siwang", 1);
             k = 0;
+            UI.c = 1;
         }
         if (m == 1)
         {
@@ -118,27 +116,11 @@ public class ball : MonoBehaviour
             r = 1;
         }
 
-        /*x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
-        transform.Translate(x, 0, z);
-        if (Input.GetKey(KeyCode.Q))
-            transform.Rotate(0, -250 * Time.deltaTime, 0,Space.Self);
-        if (Input.GetKey(KeyCode.E))
-            transform.Rotate(0, 250 * Time.deltaTime, 0, Space.Self);
-        x = Time.deltaTime * speed
-        transform.Translate(x, 0, 0);*/
-        /*if (j == 1)
-            GameObject.Destroy(me);
-        if (Input.GetKeyDown(KeyCode.C) && j == 1)
-        {
-            GameObject.Instantiate(me, transform.position, transform.rotation);
-            j = 0;
-        }*/
     }
 
     void FixedUpdate()
     {
-        if(m==1)
+        if (m==1)
         {
             jingzhi();
         }
@@ -146,30 +128,6 @@ public class ball : MonoBehaviour
         {
             qianjin();
         }
-        /*if (Input.GetButton("Fire1"))
-        {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * 15);
-        }
-        if (Input.GetButton("Fire2"))
-        {
-            GetComponent<Rigidbody>().AddForce(Vector3.down * 5);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            GetComponent<Rigidbody>().AddForce(Vector3.left * 5);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            GetComponent<Rigidbody>().AddForce(Vector3.right * 5);
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            GetComponent<Rigidbody>().AddForce(Vector3.forward * 5);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            GetComponent<Rigidbody>().AddForce(Vector3.back * 5);
-        }*/
     }
 
 }
