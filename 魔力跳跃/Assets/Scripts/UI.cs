@@ -5,10 +5,10 @@ using UnityEngine;
 public class UI : MonoBehaviour {
     public GameObject me;    
     static public int c = 1;
-	// Use this for initialization
-	void Start () {
+    static public float y0;
+    // Use this for initialization
+    void Start () {
         transform.position = new Vector3(-2, 39, -14);
-
     }
 	
 	// Update is called once per frame

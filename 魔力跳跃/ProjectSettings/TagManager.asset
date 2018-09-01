@@ -9,6 +9,7 @@ TagManager:
   - tiao
   - fzl
   - cs
+  - win
   layers:
   - Default
   - TransparentFX
